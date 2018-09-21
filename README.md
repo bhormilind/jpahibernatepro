@@ -51,3 +51,5 @@ Step1:
     Step3:
     1) Add Service Call while loading - UserDaoServiceCommandRunner
 
+=============
+management.endpoints.web.exposure.include=*
