@@ -26,6 +26,9 @@ Step1:
 	
 3)  Difference between 'git add .' vs 'git add -A'
     https://gist.github.com/dsernst/ee240ae8cac2c98e7d5d
+    
+ Some Free Studd to be Read :
+ https://in28minutes1.teachable.com/p/in28minutes-course-guide/?_ga=2.63889199.1896846572.1537476838-1600159746.1537476838
 =================================
     
     Step1:
@@ -36,4 +39,10 @@ Step1:
                         else if applied at method level, indicate that that method will implement transaction.
     4) Persistence Context:
         When any object marked with  @PersistenceContext, then that object will be saved into DB and all changes made to that object.
+        
+    Step2:
+    1) Add Service UserDAOService
+    
+    Step3:
+    1) Add Service Call while loading - UserDaoServiceCommandRunner
 
