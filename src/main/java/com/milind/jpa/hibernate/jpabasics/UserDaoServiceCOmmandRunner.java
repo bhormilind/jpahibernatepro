@@ -43,6 +43,17 @@ public class UserDaoServiceCOmmandRunner implements CommandLineRunner {
         logs.info("\n Insert new record 10004");
         logs.info("\n Update By Id \n :{}",personDAOService.insertPersonData(new Person(10004,"Ganesha","US",new Date())));
         logs.info("\n All users \n :{}",personDAOService.findAll());
+        logs.info("\n ==========================================");
+        logs.info("\n Find All by location \n :{}",personDAOService.findAllByLocationNew("US"));
+
+        logs.info("\n ==========================================");
+        logs.info("\n Find All by Custome Mapper One \n :{}",personDAOService.findAllByCustMapperOne());
+
+        logs.info("\n ==========================================");
+        logs.info("\n Find All by Custome Mapper Two \n :{}",personDAOService.findAllByCustMapperTwo());
+
+
+
 
 
 
