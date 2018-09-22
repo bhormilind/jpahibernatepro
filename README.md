@@ -12,6 +12,7 @@ Step1:
 	Hibernate Interview questions : 
 		https://www.youtube.com/watch?v=nb4kKVDc4cE   --> To be viewed
 
+localhost:8080/h2-console/
 2) Set "application.properties" to customize H2 in-memory DB.
 
 	spring.h2.console.enabled=true
@@ -23,6 +24,8 @@ Step1:
 	spring.datasource.password=
 	
 	spring.datasource.driver-class-name=org.h2.Driver
+	spring.jpa.show-sql=true
+	
 	
 3)  Difference between 'git add .' vs 'git add -A'
     https://gist.github.com/dsernst/ee240ae8cac2c98e7d5d
