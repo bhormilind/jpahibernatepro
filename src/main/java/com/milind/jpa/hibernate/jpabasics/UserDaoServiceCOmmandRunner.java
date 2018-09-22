@@ -1,7 +1,6 @@
 package com.milind.jpa.hibernate.jpabasics;
 
-import com.milind.jpa.hibernate.jpabasics.entities.User;
-import com.milind.jpa.hibernate.jpabasics.services.UserDAOService;
+import com.milind.jpa.hibernate.jpabasics.services.PersonDAOService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,14 +15,17 @@ public class UserDaoServiceCOmmandRunner implements CommandLineRunner {
 
     public static final Logger logs =
             LoggerFactory.getLogger(UserDaoServiceCOmmandRunner.class);
+
+
+
     @Autowired
-    private UserDAOService userDAOService;
+    private PersonDAOService personDAOService;
 
     @Override
     public void run(String... args) throws Exception {
 
-        Long id = userDAOService.insert(new User("Milind","CEO"));
-        logs.info("\n 1st Record : "+id);
+        logs.info("\n ==========================================");
+        logs.info("\n All users \n :{}",personDAOService.findAll());
 
     }
 }
