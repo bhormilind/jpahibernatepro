@@ -1,10 +1,13 @@
 package com.milind.jpa.hibernate.jpabasics.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@NamedQueries( value = {
+        @NamedQuery(name = "find_by_Name_JS",query = "select c from Course c where name like '%JS%'"),
+        @NamedQuery(name = "find_All",query = "select c from Course c")
+})
+
 public class Course {
 
     @Id
