@@ -73,3 +73,12 @@ In this Branch:
     spring.jpa.properties.hibernate.format_sql=true
     
     logging.level.org.hibernate.type=trace
+    
+    +
+    Methods of EntityManagers Demonstrated 
+    EntityManager.
+        1) flush()
+        2) detach()
+        3) clear()
+        4) refresh()
+        

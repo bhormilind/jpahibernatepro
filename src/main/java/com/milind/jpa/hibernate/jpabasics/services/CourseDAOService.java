@@ -29,4 +29,29 @@ public class CourseDAOService {
             em.remove(c);
         }
     }
+
+
+    public void playWithEntityManagersOptions(){
+        Course c = new Course("Angular JS : ");
+        em.persist(c);
+        Course c2 = new Course("Node JS");
+        em.persist(c2);
+
+        em.flush();
+
+        //em.detach(c2);   ---> Object will removed from current session
+
+        c.setName("Angular JS : --Updated");
+        c2.setName("Node JS ---- Updated");
+
+        em.refresh(c); /// Data reloaded from DB to Object 'c' back.  so it will overwrite current Data of Object 'c'
+
+        em.flush();
+
+
+
+
+
+    }
+
 }

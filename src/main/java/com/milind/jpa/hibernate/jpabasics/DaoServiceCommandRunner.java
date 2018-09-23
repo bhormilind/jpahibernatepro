@@ -25,6 +25,8 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
         logs.info("===================================");
         logs.info("\n Find by id 2 : "+courseDAOService.findById(2001l));
         logs.info("===================================---");
-
+        logs.info("\n Called playedWithEMManager ");
+        courseDAOService.playWithEntityManagersOptions();
+        logs.info("===================================---");
     }
 }
