@@ -10,3 +10,4 @@ public class JpaBasicsApplication {
 		SpringApplication.run(JpaBasicsApplication.class, args);
 	}
 }
+
