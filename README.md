@@ -56,3 +56,20 @@ localhost:8080/h2-console/
 
 =============
 management.endpoints.web.exposure.include=*
+
+
+In this Branch:
+    Added Test cases to Test DB CRUD Operations.
+    
+    And application.properties to show SQL queries and statistics
+    
+    #Turn on Statistics
+    spring.jpa.properties.hibernate.generate_statistics=true;
+    
+    #To show all queries
+    spring.jpa.show-sql=true
+    
+    #Format the SQL queries -------> DO not use this in production
+    spring.jpa.properties.hibernate.format_sql=true
+    
+    logging.level.org.hibernate.type=trace
