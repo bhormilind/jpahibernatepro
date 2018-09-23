@@ -5,41 +5,42 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Course {
 
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
-    private String role;
 
-    public User(String name, String role) {
-        this.name = name;
-        this.role = role;
+    public Course() {
     }
 
-    public User() {
+    public Course(String name) {
+        this.name = name;
     }
 
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public String getRole() {
-        return role;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Course{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", role='" + role + '\'' +
                 '}';
     }
 }
