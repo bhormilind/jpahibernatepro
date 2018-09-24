@@ -1,6 +1,7 @@
 package com.milind.jpa.hibernate.jpabasics;
 
 import com.milind.jpa.hibernate.jpabasics.entities.Passport;
+import com.milind.jpa.hibernate.jpabasics.entities.Review;
 import com.milind.jpa.hibernate.jpabasics.entities.Student;
 import com.milind.jpa.hibernate.jpabasics.services.CourseDAOService;
 
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 
 
 @Component
@@ -59,6 +61,8 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
         logs.info(" Displaying All Students : "+studentDAOService.findAll());
         logs.info("===================================---");
 
+        courseDAOService.addReviewsForCourse(1003l, Arrays.asList(new Review(4.2,"Gread Hands On")
+                ,new Review(4.6,"Good Programs")));
 
     }
 }

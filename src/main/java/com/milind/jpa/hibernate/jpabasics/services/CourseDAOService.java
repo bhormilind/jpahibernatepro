@@ -1,6 +1,9 @@
 package com.milind.jpa.hibernate.jpabasics.services;
 
 import com.milind.jpa.hibernate.jpabasics.entities.Course;
+import com.milind.jpa.hibernate.jpabasics.entities.Review;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +16,9 @@ import java.util.List;
 @Repository
 @Transactional
 public class CourseDAOService {
+
+    private Logger logs = LoggerFactory.getLogger(this.getClass());
+
 
     @Autowired
     EntityManager em;
@@ -79,6 +85,22 @@ public class CourseDAOService {
 
 
 
+    }
+
+    public void addReviewsForCourse(Long courseId, List<Review> reviews){
+
+        logs.info("Started adding new review for Course "+courseId);
+        Course c = findById(courseId);
+        if(c!=null){
+            reviews.stream()
+                    .forEach(r -> {
+                        c.addReviews(r);
+                        r.setCourse(c);
+                        em.persist(r);
+                        }
+                    );
+            em.flush();
+        }
     }
 
 }

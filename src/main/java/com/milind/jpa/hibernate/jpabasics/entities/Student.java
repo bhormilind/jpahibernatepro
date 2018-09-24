@@ -3,11 +3,11 @@ package com.milind.jpa.hibernate.jpabasics.entities;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name="studSeq",sequenceName = "studName",initialValue = 2001)
+//@SequenceGenerator(name="studSeq",sequenceName = "studName",initialValue = 2001)
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "studSeq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String studName;
 

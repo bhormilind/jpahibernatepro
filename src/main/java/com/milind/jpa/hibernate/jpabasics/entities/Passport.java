@@ -3,11 +3,11 @@ package com.milind.jpa.hibernate.jpabasics.entities;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name = "passNo",sequenceName = "passNo",initialValue = 3001)
+//@SequenceGenerator(name = "passNo",sequenceName = "passNo",initialValue = 3001)
 public class Passport {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "passNo")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String passportNo;
