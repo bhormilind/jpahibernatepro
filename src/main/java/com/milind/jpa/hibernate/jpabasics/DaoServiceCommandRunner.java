@@ -1,7 +1,10 @@
 package com.milind.jpa.hibernate.jpabasics;
 
+import com.milind.jpa.hibernate.jpabasics.entities.Passport;
+import com.milind.jpa.hibernate.jpabasics.entities.Student;
 import com.milind.jpa.hibernate.jpabasics.services.CourseDAOService;
 
+import com.milind.jpa.hibernate.jpabasics.services.StudentDAOService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,9 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
 
     @Autowired
     CourseDAOService courseDAOService;
+
+    @Autowired
+    StudentDAOService studentDAOService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -43,6 +49,15 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
         logs.info("\n Find all by Native   with Param: "+courseDAOService.findByName_Native_namedQuery_with_Param());
         logs.info("===================================---");
 
+        logs.info("===================================---");
+        logs.info(" Enter student record ");
+        Student s = new Student("Ganesha");
+        s.setPassport(new Passport("G2002"));
+        studentDAOService.saveStudent(s);
+
+        logs.info("===================================---");
+        logs.info(" Displaying All Students : "+studentDAOService.findAll());
+        logs.info("===================================---");
 
 
     }
