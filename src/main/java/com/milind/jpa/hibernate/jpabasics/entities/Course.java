@@ -21,11 +21,22 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<Review> reviews = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students = new ArrayList<>();
+
     public Course() {
     }
 
     public Course(String name) {
         this.name = name;
+    }
+
+    public List<Student> getStudents(Student s) {
+        return students;
+    }
+
+    public void addStudent(Student s){
+        this.students.add(s);
     }
 
     public Long getId() {

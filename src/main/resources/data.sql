@@ -12,3 +12,8 @@ insert into review(id,rating,description,course_id) values(4101,4.9,'Greate Cour
 insert into review(id,rating,description,course_id) values(4102,4,'Wonderful Course',1001);
 insert into review(id,rating,description,course_id) values(4103,4.3,'Awesome Course',1003);
 
+insert into student_course(student_id,course_id) values(2000,1001);
+insert into student_course(student_id,course_id) values(2000,1003);
+insert into student_course(student_id,course_id) values(2000,1004);
+insert into student_course(student_id,course_id) values(2000,1005);
+

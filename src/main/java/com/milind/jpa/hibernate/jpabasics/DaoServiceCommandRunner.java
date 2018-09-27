@@ -64,5 +64,10 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
         courseDAOService.addReviewsForCourse(1003l, Arrays.asList(new Review(4.2,"Gread Hands On")
                 ,new Review(4.6,"Good Programs")));
 
+
+        studentDAOService.retriveStudentAndCourse();
+
+        logs.info("Adding student and Course");
+        studentDAOService.insertStudentAndCourse();
     }
 }
