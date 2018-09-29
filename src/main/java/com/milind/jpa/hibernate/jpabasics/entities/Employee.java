@@ -3,12 +3,11 @@ package com.milind.jpa.hibernate.jpabasics.entities;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy =InheritanceType.SINGLE_TABLE )
-@DiscriminatorColumn(name = "empType")
+@Inheritance(strategy =InheritanceType.TABLE_PER_CLASS )
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue//(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
@@ -28,6 +27,10 @@ public class Employee {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     @Override

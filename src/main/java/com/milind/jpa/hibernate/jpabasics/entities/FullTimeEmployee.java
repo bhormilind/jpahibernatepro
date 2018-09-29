@@ -23,9 +23,7 @@ public class FullTimeEmployee extends Employee{
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
-        this.salary = salary;
-    }
+
 
     @Override
     public String toString() {

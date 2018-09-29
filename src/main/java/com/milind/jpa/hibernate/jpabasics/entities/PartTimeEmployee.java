@@ -16,6 +16,10 @@ public class PartTimeEmployee extends Employee{
         this.hourlyWages = hourlyWages;
     }
 
+    public BigDecimal getHourlyWages() {
+        return hourlyWages;
+    }
+
     @Override
     public String toString() {
         return "PartTimeEmployee{" +
