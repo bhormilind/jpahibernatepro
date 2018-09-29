@@ -43,4 +43,6 @@ public class JpaBasicsApplicationTests {
 		Assert.assertNotEquals(0,l);
 	}
 
+
+
 }

@@ -1,10 +1,9 @@
 package com.milind.jpa.hibernate.jpabasics;
 
-import com.milind.jpa.hibernate.jpabasics.entities.Passport;
-import com.milind.jpa.hibernate.jpabasics.entities.Review;
-import com.milind.jpa.hibernate.jpabasics.entities.Student;
+import com.milind.jpa.hibernate.jpabasics.entities.*;
 import com.milind.jpa.hibernate.jpabasics.services.CourseDAOService;
 
+import com.milind.jpa.hibernate.jpabasics.services.EmployeeDAOService;
 import com.milind.jpa.hibernate.jpabasics.services.StudentDAOService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 
@@ -22,10 +22,13 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
             LoggerFactory.getLogger(DaoServiceCommandRunner.class);
 
     @Autowired
-    CourseDAOService courseDAOService;
+    private CourseDAOService courseDAOService;
 
     @Autowired
-    StudentDAOService studentDAOService;
+    private StudentDAOService studentDAOService;
+
+    @Autowired
+    private EmployeeDAOService employeeDAOService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -69,5 +72,14 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
 
         logs.info("Adding student and Course");
         studentDAOService.insertStudentAndCourse();
+
+        //insert employee
+
+        employeeDAOService.saveEmp(new FullTimeEmployee("JACK",new BigDecimal("10000")));
+
+        employeeDAOService.saveEmp(new PartTimeEmployee("Jill", new BigDecimal("50")));
+
+
+        logs.info("All Employees : "+employeeDAOService.getEmployees());
     }
 }
