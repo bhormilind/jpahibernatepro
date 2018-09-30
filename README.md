@@ -82,3 +82,49 @@ In this Branch:
         3) clear()
         4) refresh()
         
+==============================================================================
+Transaction Management : 
+ACID properties:
+1) A -> Automic
+2) C -> Consistancy
+3) I -> Isolation
+4) D -> Durability
+
+Concepts :
+1) Dirty Read     ->  When Transaction-2 Reads value which was modified by Trnasction-1 but not yet committed by transaction-1.
+2) Non Repeatable Reads --> When a transaction tries to retive the same data twice and it gets two different values during the same transaction
+3) Phanthom Reads  --> when I get diff no of rows as a result of same query at two different points of the same transaction.
+ 
+====================
+4 Important Isolation Levels:
+
+IsolationLevel      Dirty Read      Non Repeatable Read         Phanthom Read
+Read Uncommitted(1)    possible            possible                possible
+Read Committed(2)      solved              possible                possible
+Repeatable Read(4)     solved              solved                  possible
+Serializable(8)        solved              solved                  solved
+
+-----------------------------------------
+Mostly used : Read Committed . It gives High perfromance and considarably solve major problems
+
+Serializable ---> Lowest performace. But good Data consistancy and Integrity 
+
+=============================
+Diff Between Java JPA and SPING JPA
+1) 
+javax-> jpa : is capable to manage only transaction over a single DB
+Spring->JPA : is capable to manage transaction across multiple DBs , MQ, JMS etc
+
+2) Spring-> JPA @Transactional annotation have below 4 isolation level
+    a) DEFAULT
+    b) READ_COMMITTED
+    c) READ_UNCOMMITTED
+    d) REPEATABLE_READ
+    e) SERIALIZABLE
+    
+    E.g
+    @Tranasactional(isolation=DEFAULT)
+    
+    if you want to apply specifica isolation level to all project , then set property:
+    
+    spring.jpa.properties.hibernate.connection.isolation=2;
