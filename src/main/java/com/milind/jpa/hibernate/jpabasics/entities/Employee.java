@@ -2,8 +2,9 @@ package com.milind.jpa.hibernate.jpabasics.entities;
 
 import javax.persistence.*;
 
-@Entity
-@Inheritance(strategy =InheritanceType.JOINED )
+@MappedSuperclass          // No Inheritance at all
+//@Entity
+//@Inheritance(strategy =InheritanceType.JOINED )
 public class Employee {
 
     @Id

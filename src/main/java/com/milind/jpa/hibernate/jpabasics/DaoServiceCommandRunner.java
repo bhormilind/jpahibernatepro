@@ -80,6 +80,10 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
         employeeDAOService.saveEmp(new PartTimeEmployee("Jill", new BigDecimal("50")));
 
 
-        logs.info("All Employees : "+employeeDAOService.getEmployees());
+       // logs.info("All Employees : "+employeeDAOService.getEmployees());
+
+        logs.info("Part Time Employees : "+employeeDAOService.getPatTimeEmployees());
+
+        logs.info("Full Time Employees : "+employeeDAOService.getFullTimeEmployees());
     }
 }
