@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -58,5 +59,48 @@ public class StudentDAOService {
         em.persist(c);
 
         em.flush();
+    }
+
+    public List<Course> jpql_courses_without_student(){
+        TypedQuery<Course> query = em.createQuery("Select c from Course c where c.students is empty", Course.class);
+        return query.getResultList();
+    }
+
+    public List<Course> jpql_courses_more_than_student(){
+        TypedQuery<Course> query = em.createQuery("Select c from Course c where size(c.students) >= 2", Course.class);
+        return query.getResultList();
+    }
+
+    ///// Some more jpql criterias-------------
+
+    //like
+    //BETWEEN x and y
+    //IS NULL
+    //upper, lower, trim, length
+    public List<Student> jpqlPassportNoLikeSomePattern(){
+        TypedQuery<Student> query = em.createQuery("Select s from Student s where s.passport.passportNo like '%200%'",Student.class);
+        return query.getResultList();
+    }
+
+
+    ///------- Join Demo
+    //1) JOIN       ---->>  Select c,s from Course c JOIN c.students s  ( will not return Courses without students too)
+    //2) LEFT JOIN  ---->>  Select c, s from Course c LEFT JOIN c.students s  ( will return Courses without students too)
+    //3) CROSS JOIN ---->> Select c, s from Course c, Student s
+
+    public List simpleJoin(){
+        Query q=em.createQuery("Select c, s from Course c JOIN c.students s");
+        return q.getResultList();
+
+    }
+
+    public List<Object[]> leftJoin(){
+        Query q = em.createQuery("Select c, s from Course c LEFT JOIN c.students s");
+        return q.getResultList();
+    }
+
+    public List<Object[]> crossJoin(){
+        Query q = em.createQuery("Select c, s from Course c, Student s");
+        return q.getResultList();
     }
 }

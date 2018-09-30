@@ -13,6 +13,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 @Component
@@ -69,5 +70,34 @@ public class DaoServiceCommandRunner implements CommandLineRunner {
 
         logs.info("Adding student and Course");
         studentDAOService.insertStudentAndCourse();
+
+
+        logs.info("\n Courses without students : "+studentDAOService.jpql_courses_without_student());
+
+        logs.info(("\n Courses with more than 2 students : "+studentDAOService.jpql_courses_more_than_student()));
+
+        logs.info(("\n Passprt with certain pattern : "+studentDAOService.jpqlPassportNoLikeSomePattern()));
+
+        List<Object[]> result = studentDAOService.simpleJoin();
+        logs.info("\n Simple Join : "+result.size());
+        displayResult(result);
+
+        result = studentDAOService.leftJoin();
+        logs.info("\n Left Join : "+result.size());
+        displayResult(result);
+
+
+        result = studentDAOService.crossJoin();
+        logs.info("\n Cross Join : "+result.size());
+        displayResult(result);
+
+    }
+
+    private void displayResult(List<Object[]> objs){
+        objs.stream()
+                .forEach(o -> {
+                    logs.info("\nCourse : "+o[0]);
+                    logs.info("\nStudent : "+o[1]);
+                });
     }
 }
