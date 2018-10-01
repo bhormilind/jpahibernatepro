@@ -1,9 +1,12 @@
 package com.milind.jpa.hibernate.jpabasics.entities;
 
+
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Cacheable
 public class Course {
 
     @Id
